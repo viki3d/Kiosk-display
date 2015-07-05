@@ -1,2 +1,2 @@
 # Kiosk-display
-Angular, jQuery, Bootstrap
+Angular, jQuery, AJAX, Bootstrap, PHP
