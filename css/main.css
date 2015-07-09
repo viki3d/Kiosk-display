@@ -1,0 +1,119 @@
+body, html { 
+	height: 100%;
+}
+
+.col-sm-4 {
+	height: 100%;
+	padding-left : 2px;
+	padding-right : 8px;
+}
+.row {
+	margin-top : 8px;
+	margin-left : 0px;
+	margin-right : 0px;
+	height : 18%;
+}
+
+.container-fluid {
+	height: inherit;
+	overflow-y: hidden; 
+}
+
+.button {
+	height : 100%;
+}
+
+.btn-default {
+	position : relative;
+	height : 100%;
+	font-size : 28px;
+}
+
+.well {
+	width : 99%;
+	height : 100%;
+	padding-top : 1%; 
+	padding-bottom : 1%;
+	text-align : center;
+}
+
+
+.payment-message-success {
+	color : #ffffff;
+	background-color:#449d44;
+}
+
+.payment-message-failure {
+	color : #ffffff;
+	background-color:#c9302c;
+}
+
+
+/* force tooltip respect new lines */
+.tooltip-inner {
+	white-space : pre;
+	max-width : none;
+	font-size : 24px;
+}	
+
+/* custom */
+.btn-attr {
+	width : 88%; 
+	height : 100%;
+}
+
+.btn-decr {
+	width : 10%; 
+	height :100%;
+	padding : 0px;
+	/* margin-left : -2px; */
+}
+
+.btn-pay {
+	width : 45%;
+	height : 100%;
+	margin-right : 1%;
+}
+
+.btn-next, .btn-prev {
+	width:99%; 
+	height:100%;
+}
+
+.btn-hidden {
+	visibility : hidden;
+}
+
+.page2 {
+	display : none;
+}
+
+.total {
+	display : block;
+	position : relative; 
+	top: 50%; 
+	transform : translateY(-50%);
+	font-weight : bold;
+}
+
+.mfont-smaller {
+	font-size : 26px;	
+}
+
+.mfont-main {
+	font-size : 28px;	
+}
+
+.mfont-bigger {
+	font-size : 32px;	
+}	
+
+
+.vcenter {
+	display : block;
+	position:relative;
+	top:50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}	

@@ -1,0 +1,210 @@
+<!-- Kiosk display module, author Victor Kirov, v1.0, June 2015 -->
+<!DOCTYPE html>
+<html ng-app="kiosk">
+<head>
+    <meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- Project is used offline, do not use internet links for libraries -->
+	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="plugins/angular/angular.min.js"></script>
+	<script src="js/kiosk.js"></script>
+</head>
+<body>
+
+	<div class="container-fluid" ng-controller="KioskController">
+
+		<div class="row page1">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(1)">{{attractions[1].name}}  <span class="badge mfont-main">{{counters[1]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(1)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(2)">{{attractions[2].name}}  <span class="badge mfont-main">{{counters[2]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(2)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(3)">{{attractions[3].name}}  <span class="badge mfont-main">{{counters[3]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(3)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+		</div>
+
+		<div class="row page1">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(4)">{{attractions[4].name}}  <span class="badge mfont-main">{{counters[4]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(4)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(5)">{{attractions[5].name}}  <span class="badge mfont-main">{{counters[5]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(5)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(6)">{{attractions[6].name}}  <span class="badge mfont-main">{{counters[6]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(6)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+		</div>
+
+		<div class="row page1">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(7)">{{attractions[7].name}}  <span class="badge mfont-main">{{counters[7]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(7)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(8)">{{attractions[8].name}}  <span class="badge mfont-main">{{counters[8]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(8)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(9)">{{attractions[9].name}}  <span class="badge mfont-main">{{counters[9]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(9)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+		</div>
+		
+		<div class="row page1">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(10)">{{attractions[10].name}}  <span class="badge mfont-main">{{counters[10]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(10)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(11)">{{attractions[11].name}}  <span class="badge mfont-main">{{counters[11]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(11)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-next mfont-main" ng-disabled="uiBlocked" ng-click="togglePage()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+			</div>
+		</div>		
+
+
+		<div class="row page2">
+			<div class="col-sm-4" style="height:100%;">
+				<button type="button" class="btn btn-warning btn-attr mfont-main" ng-disabled="uiBlocked" ng-click="bumpUp(12)">{{attractions[12].name}}  <span class="badge mfont-main">{{counters[12]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main" ng-disabled="uiBlocked" ng-click="bumpDown(12)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(13)">{{attractions[13].name}}  <span class="badge mfont-main">{{counters[13]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(13)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(14)">{{attractions[14].name}}  <span class="badge mfont-main">{{counters[14]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(14)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+		</div>
+
+		<div class="row page2">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(15)">{{attractions[15].name}}  <span class="badge mfont-main">{{counters[15]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(15)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(16)">{{attractions[16].name}}  <span class="badge mfont-main">{{counters[16]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(16)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(17)">{{attractions[17].name}}  <span class="badge mfont-main">{{counters[17]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(17)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+		</div>
+
+		<div class="row page2">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(18)">{{attractions[18].name}}  <span class="badge mfont-main">{{counters[18]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(18)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(19)">{{attractions[19].name}}  <span class="badge mfont-main">{{counters[19]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(19)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(20)">{{attractions[20].name}}  <span class="badge mfont-main">{{counters[20]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(20)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+		</div>
+		
+		<div class="row page2">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(21)">{{attractions[21].name}}  <span class="badge mfont-main">{{counters[21]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(21)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-attr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpUp(22)">{{attractions[22].name}}  <span class="badge mfont-main">{{counters[22]}}</span></button>
+				<button type="button" class="btn btn-warning btn-decr mfont-main btn-hidden" ng-disabled="uiBlocked" ng-click="bumpDown(22)"><span class="glyphicon glyphicon-chevron-down" ></span></button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-warning btn-next mfont-main" ng-disabled="uiBlocked" ng-click="togglePage()"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			</div>
+		</div>		
+
+		
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="well">
+					<button type="button" class="btn btn-default mfont-smaller" ng-disabled="uiBlocked" ng-click="adjust()"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default mfont-smaller" ng-disabled="uiBlocked" ng-click="changeLang('bg')">BG</button>
+					<button type="button" class="btn btn-default mfont-smaller" ng-disabled="uiBlocked" ng-click="changeLang('en')">EN</button>
+					<button type="button" class="btn btn-default mfont-smaller" ng-disabled="uiBlocked" ng-click="changeLang('ru')">RU</button>					
+					<button type="button" class="btn btn-default mfont-smaller" ng-disabled="uiBlocked" ng-click="changeLang('de')">DE</button>
+					<!--
+					<button type="button" class="btn btn-default mfont-smaller" ng-disabled="uiBlocked" ng-click="changeLang('es')">ES</button>
+					-->
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well">
+					<span class="total mfont-bigger" data-toggle="tooltip" data-html="true" title="{{totalVerbose}}" id="totalVerbose" >{{labels.total | uppercase}}: {{total | number:2}} {{labels.leva}}</span>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well">
+					<button type="button" class="btn btn-success btn-pay mfont-smaller" ng-disabled="uiBlocked" ng-click="doPayment()">{{labels.pay}}</button>
+					<button type="button" class="btn btn-danger  btn-pay mfont-smaller" ng-disabled="uiBlocked" ng-click="cancelOrder()">{{labels.cancel}}</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="paymentResultMessage" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content" id="paymentMessageModalContent">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<div class="text-center">
+							<br/>
+							<h2 id="paymentMessageText"></h2><br/>
+							<br/>
+							<button type="button" class="btn btn-default text-center" data-dismiss="modal">{{labels.close}}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false" role="dialog">
+			<div class="modal-dialog vcenter" >
+				<div class="modal-content" id="paymentMessageModalContent">
+					<div class="modal-body">
+						<div class="progress text-center">
+							<div class="progress-bar progress-bar-striped active" 
+								data-backdrop="static" 
+								role="progressbar"
+								aria-valuenow="100" 
+								aria-valuemin="0" 
+								aria-valuemax="100" style="width:100%">
+								Please, make your payment...
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>		
+		
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+</body>
+</html>
