@@ -7,6 +7,7 @@ Kokolandia is an amusement park for children with different <u>attractions</u> l
 - Walking rope
 - Trampoline
 - Other...
+
 Kokolandia website: [http://kokolandia.com/](http://kokolandia.com/)
 
 ## What is the kiosk?
