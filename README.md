@@ -30,6 +30,3 @@
 		<a href="readme/screenshot_02.png"><img src="screenshot_02.png" style="width:480px;"></a>
 	</div>
 	<h3>Run kiosk live demo <a href="http://www.viki3d.com/demos/kiosk" target="_blank">here</a> </h3>
-	<br/> <br/>
-</body>
-</html>
