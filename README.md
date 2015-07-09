@@ -14,7 +14,7 @@ Kokolandia website: [http://kokolandia.com/](http://kokolandia.com/)
 The kiosk will be automated ticket machine for selling tickets. The main system will run on Raspberry Pi2, which will be
 interacting with an touch-display interface, on which people will order tickets for the different <u>attractions</u>.
 A money-take hardware will be attached to the system. The money hardware will return change.
-![Screenshot 1](readme/kokolandia.png)	
+![Screenshot 1](readme/schema.png)	
 
 ## The display module for kiosk
 
