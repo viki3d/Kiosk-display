@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 //                                                                            //
 // Kiosk-display-module by Victor Kirov, ver 1.0, June 2015                   //
 // victor.kirov.eu@gmail.com                                                  //
@@ -21,7 +21,8 @@ app.controller('KioskController', function($scope) {
 		"close":"Затвори",		
 		"paymentConnectionError":"Грешка при свързване",
 		"paymentSuccessful":"Платихте успешно", 
-		"paymentInsufficientAmount":"Грешка при плащане: Недостатъчна наличност",
+		"paymentInsufficientAmount":
+				"Грешка при плащане: Недостатъчна наличност",
 		"paymentInternalError":"Грешка при плащане: Вътрешна грешка"
 	};
 	
@@ -61,18 +62,21 @@ app.controller('KioskController', function($scope) {
 		$scope.updateTotal();
 	}
 	
-	//  Update total sum in the interface and also sum pop-up verbose description
+	//  Update total sum in the interface and also sum pop-up verbose 
 	$scope.updateTotal = function () {
 		$scope.total = 0;
 		$scope.totalVerbose = '';
 		for (var i=1; i<$scope.attractions.length; i++) {
-			var $count = isNaN($scope.counters[i])?0:$scope.counters[i];
+			var $count = 
+				isNaN($scope.counters[i])?0:$scope.counters[i];
 			$scope.total += $scope.attractions[i].price * $count;
 			if ($count>0) {
-				$scope.totalVerbose += $scope.attractions[i].name 
-							+ ' (x' + $count + ') = ' 
-							+  ($scope.attractions[i].price*$count).toFixed(2) 
-							+ " " + $scope.labels['levs'] + " \r\n";
+				$scope.totalVerbose += 
+					$scope.attractions[i].name 
+					+ ' (x' + $count + ') = ' 
+					+  ($scope.attractions[i].price*$count)
+						.toFixed(2) 
+					+ " " + $scope.labels['levs'] + " \r\n";
 			}	
 			$("#totalVerbose").attr('title', $scope.totalVerbose)
 				.tooltip('fixTitle');
@@ -121,8 +125,10 @@ app.controller('KioskController', function($scope) {
 		.fail(function( response ) {
 			var message = $scope.labels["paymentConnectionError"];
 			$("#paymentMessageText").html(message);
-			$("#paymentMessageModalContent").removeClass("payment-message-success");			
-			$("#paymentMessageModalContent").addClass("payment-message-failure");
+			$("#paymentMessageModalContent")
+				.removeClass("payment-message-success");			
+			$("#paymentMessageModalContent")
+				.addClass("payment-message-failure");
 			$('#paymentResultMessage').modal('show');			
 		})
 		.always(function( response ) {
@@ -138,8 +144,10 @@ app.controller('KioskController', function($scope) {
 		//  nothing to pay
 		if ($scope.total==0) {
 			$("#paymentMessageText").html($scope.labels.nothingToPay);
-			$("#paymentMessageModalContent").removeClass("payment-message-failure");
-			$("#paymentMessageModalContent").removeClass("payment-message-success");
+			$("#paymentMessageModalContent")
+				.removeClass("payment-message-failure");
+			$("#paymentMessageModalContent")
+				.removeClass("payment-message-success");
 			$('#paymentResultMessage').modal('show');
 			return;
 		}
@@ -148,12 +156,13 @@ app.controller('KioskController', function($scope) {
 		for (var i=1; i<$scope.attractions.length; i++) {
 			var $count = isNaN($scope.counters[i])?0:$scope.counters[i];
 			if ($count>0) {
-				payment += $scope.attractions[i].id 
-					+ ", " + $count
-					+ ", " + parseFloat($scope.attractions[i].price).toFixed(2)
-					+ ", " + ($scope.attractions[i].price*$count).toFixed(2) 
-					+ ", " + $scope.attractions[i].name 
-					+ "\r\n";
+			    payment += 
+				$scope.attractions[i].id 
+				+ ", " + $count
+				+ ", " + parseFloat($scope.attractions[i].price).toFixed(2)
+				+ ", " + ($scope.attractions[i].price*$count).toFixed(2) 
+				+ ", " + $scope.attractions[i].name 
+				+ "\r\n";
 			}
 		}		
 
@@ -161,7 +170,7 @@ app.controller('KioskController', function($scope) {
 		//  Block interface before the AJAX call - show preloader
 		$('#pleaseWaitDialog').modal('show');
 		
-		//  Simulate response after 5 seconds from the main system (Raspberry Pi 2)
+		//  Simulate response after 5 seconds from the main system (R-y Pi 2)
 		setInterval("$('#pleaseWaitDialog').modal('hide')", 5000);
 		
 		$.ajax({
@@ -176,8 +185,10 @@ app.controller('KioskController', function($scope) {
 			if (response['payment_code']==0) {
 				message = $scope.labels["paymentSuccessful"];
 				$("#paymentMessageText").html(message);
-				$("#paymentMessageModalContent").addClass("payment-message-success");
-				$("#paymentMessageModalContent").removeClass("payment-message-failure");
+				$("#paymentMessageModalContent")
+					.addClass("payment-message-success");
+				$("#paymentMessageModalContent")
+					.removeClass("payment-message-failure");
 				
 				//  Clears current order if payment is successful
 				$scope.cancelOrder();
@@ -185,27 +196,35 @@ app.controller('KioskController', function($scope) {
 			if (response['payment_code']==1) {
 				message = $scope.labels["paymentInsufficientAmount"];
 				$("#paymentMessageText").html(message);
-				$("#paymentMessageModalContent").removeClass("payment-message-success");
-				$("#paymentMessageModalContent").addClass("payment-message-failure");
+				$("#paymentMessageModalContent")
+					.removeClass("payment-message-success");
+				$("#paymentMessageModalContent")
+					.addClass("payment-message-failure");
 			}
 			if (response['payment_code']==2) {
 				message = $scope.labels["paymentInternalError"];
 				$("#paymentMessageText").html(message);
-				$("#paymentMessageModalContent").removeClass("payment-message-success");
-				$("#paymentMessageModalContent").addClass("payment-message-failure");
+				$("#paymentMessageModalContent")
+					.removeClass("payment-message-success");
+				$("#paymentMessageModalContent")
+					.addClass("payment-message-failure");
 			}
 			
 		})
 		.fail(function( response ) {
 			var message = $scope.labels["paymentConnectionError"];
 			$("#paymentMessageText").html(message);
-			$("#paymentMessageModalContent").removeClass("payment-message-success");			
-			$("#paymentMessageModalContent").addClass("payment-message-failure");
+			$("#paymentMessageModalContent")
+				.removeClass("payment-message-success");			
+			$("#paymentMessageModalContent")
+				.addClass("payment-message-failure");
 		})
 		.always(function( response ) {
 			//  Unblock interface - hide preloader
-			//$('#pleaseWaitDialog').modal('hide');  //currently commented, because now we
-													 //simulate the response (after 5 secs)
+			//$('#pleaseWaitDialog').modal('hide'); //currently commented, 
+								//because now we
+								//simulate the response 
+								//(after 5 secs)
 			$scope.$apply();
 			$('#paymentResultMessage').modal('show');
 		});
@@ -222,46 +241,56 @@ app.controller('KioskController', function($scope) {
 		//  TODO: Hard fix. Could be optimized later.
 		if ($scope.fontSize==1)	{
 			var x = $('#totalVerbose').attr("title");
-			$('#totalVerbose').attr("title",
-									"<p class='mfont-smaller' style='font-size:24px;'>"
-										+ $('#totalVerbose').attr("title")+"</p>"
-								);
+			$('#totalVerbose')
+				.attr(
+					"title",
+					"<p class='mfont-smaller' style='font-size:24px;'>"
+					+ $('#totalVerbose').attr("title")+"</p>"
+				);
 			$("#totalVerbose").tooltip('fixTitle');
 			$('#totalVerbose').attr("title", x);
 		}
 		if ($scope.fontSize==2)	{
 			var x = $('#totalVerbose').attr("title");
-			$('#totalVerbose').attr("title", 
-									"<p class='mfont-smaller' style='font-size:26px;'>"
-									+ $('#totalVerbose').attr("title")+"</p>"
-								);
+			$('#totalVerbose')
+				.attr(
+					"title", 
+					"<p class='mfont-smaller' style='font-size:26px;'>"
+					+ $('#totalVerbose').attr("title")+"</p>"
+				);
 			$("#totalVerbose").tooltip('fixTitle');
 			$('#totalVerbose').attr("title", x);				
 		}
 		if ($scope.fontSize==3) {
 			var x = $('#totalVerbose').attr("title");
-			$('#totalVerbose').attr("title", 
-									"<p class='mfont-smaller' style='font-size:28px;'>"
-									+ $('#totalVerbose').attr("title")+"</p>"
-								);
+			$('#totalVerbose')
+				.attr(
+					"title", 
+					"<p class='mfont-smaller' style='font-size:28px;'>"
+					+ $('#totalVerbose').attr("title")+"</p>"
+				);
 			$("#totalVerbose").tooltip('fixTitle');
 			$('#totalVerbose').attr("title", x);				
 		}
 		if ($scope.fontSize==4) {
 			var x = $('#totalVerbose').attr("title");
-			$('#totalVerbose').attr("title", 
-									"<p class='mfont-smaller' style='font-size:32px;'>"
-									+ $('#totalVerbose').attr("title")+"</p>"
-								);
+			$('#totalVerbose')
+				.attr(
+					"title", 
+					"<p class='mfont-smaller' style='font-size:32px;'>"
+					+ $('#totalVerbose').attr("title")+"</p>"
+				);
 			$("#totalVerbose").tooltip('fixTitle');
 			$('#totalVerbose').attr("title", x);				
 		}
 		if ($scope.fontSize==5) {
 			var x = $('#totalVerbose').attr("title");
-			$('#totalVerbose').attr("title", 
-									"<p class='mfont-smaller' style='font-size:40px;'>"
-									+ $('#totalVerbose').attr("title")+"</p>"
-								);
+			$('#totalVerbose')
+				.attr(
+					"title", 
+					"<p class='mfont-smaller' style='font-size:40px;'>"
+					+ $('#totalVerbose').attr("title")+"</p>"
+				);
 			$("#totalVerbose").tooltip('fixTitle');
 			$('#totalVerbose').attr("title", x);				
 		}
@@ -294,16 +323,16 @@ app.controller('KioskController', function($scope) {
 	}
 
 	//  After page is loaded - initialize it with default language
-    angular.element(document).ready(function () {
-        $scope.changeLang('bg');
-    });	
+	angular.element(document).ready(function () {
+		$scope.changeLang('bg');
+	});	
 	
 	//  Test function, which simulates a delay interval in milliseconds
 	$scope.sleep = function(milliseconds) {
 		var start = new Date().getTime();
 		for (var i = 0; i < 1e7; i++) {
 			if ((new Date().getTime() - start) > milliseconds){
-			  break;
+				break;
 			}
 		}
 	}
