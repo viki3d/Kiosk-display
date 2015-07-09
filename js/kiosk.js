@@ -159,8 +159,10 @@ app.controller('KioskController', function($scope) {
 			    payment += 
 				$scope.attractions[i].id 
 				+ ", " + $count
-				+ ", " + parseFloat($scope.attractions[i].price).toFixed(2)
-				+ ", " + ($scope.attractions[i].price*$count).toFixed(2) 
+				+ ", " + parseFloat($scope.attractions[i].price)
+						.toFixed(2)
+				+ ", " + ($scope.attractions[i].price*$count)
+						.toFixed(2) 
 				+ ", " + $scope.attractions[i].name 
 				+ "\r\n";
 			}
@@ -170,7 +172,7 @@ app.controller('KioskController', function($scope) {
 		//  Block interface before the AJAX call - show preloader
 		$('#pleaseWaitDialog').modal('show');
 		
-		//  Simulate response after 5 seconds from the main system (R-y Pi 2)
+		//  Simulate response after 5 seconds from the main system (Pi 2)
 		setInterval("$('#pleaseWaitDialog').modal('hide')", 5000);
 		
 		$.ajax({
@@ -221,10 +223,11 @@ app.controller('KioskController', function($scope) {
 		})
 		.always(function( response ) {
 			//  Unblock interface - hide preloader
-			//$('#pleaseWaitDialog').modal('hide'); //currently commented, 
-								//because now we
-								//simulate the response 
-								//(after 5 secs)
+			//$('#pleaseWaitDialog').modal('hide');  //currently
+					 	//commented, because now we
+						//simulate the response 
+						//(after 5 secs)
+
 			$scope.$apply();
 			$('#paymentResultMessage').modal('show');
 		});
@@ -232,7 +235,7 @@ app.controller('KioskController', function($scope) {
 	
 	$scope.fontSize = 2;
 	//  The asterisk (*) button, which adjust fonts for the different devices
-	//  Optimal look is achieved with different font-size on different tablet devices.
+	//  Optimal look is achieved with different font-size on different devices
 	$scope.adjust = function() {
 		$scope.fontSize++
 		if ($scope.fontSize==6) $scope.fontSize = 1;
@@ -244,7 +247,8 @@ app.controller('KioskController', function($scope) {
 			$('#totalVerbose')
 				.attr(
 					"title",
-					"<p class='mfont-smaller' style='font-size:24px;'>"
+					"<p class='mfont-smaller' "
+					+ "style='font-size:24px;'>"
 					+ $('#totalVerbose').attr("title")+"</p>"
 				);
 			$("#totalVerbose").tooltip('fixTitle');
@@ -255,7 +259,8 @@ app.controller('KioskController', function($scope) {
 			$('#totalVerbose')
 				.attr(
 					"title", 
-					"<p class='mfont-smaller' style='font-size:26px;'>"
+					"<p class='mfont-smaller' "
+					+ "style='font-size:26px;'>"
 					+ $('#totalVerbose').attr("title")+"</p>"
 				);
 			$("#totalVerbose").tooltip('fixTitle');
@@ -266,7 +271,8 @@ app.controller('KioskController', function($scope) {
 			$('#totalVerbose')
 				.attr(
 					"title", 
-					"<p class='mfont-smaller' style='font-size:28px;'>"
+					"<p class='mfont-smaller' "
+					+ "style='font-size:28px;'>"
 					+ $('#totalVerbose').attr("title")+"</p>"
 				);
 			$("#totalVerbose").tooltip('fixTitle');
@@ -277,7 +283,8 @@ app.controller('KioskController', function($scope) {
 			$('#totalVerbose')
 				.attr(
 					"title", 
-					"<p class='mfont-smaller' style='font-size:32px;'>"
+					"<p class='mfont-smaller' "
+					+ "style='font-size:32px;'>"
 					+ $('#totalVerbose').attr("title")+"</p>"
 				);
 			$("#totalVerbose").tooltip('fixTitle');
@@ -288,7 +295,8 @@ app.controller('KioskController', function($scope) {
 			$('#totalVerbose')
 				.attr(
 					"title", 
-					"<p class='mfont-smaller' style='font-size:40px;'>"
+					"<p class='mfont-smaller' "
+					+ "style='font-size:40px;'>"
 					+ $('#totalVerbose').attr("title")+"</p>"
 				);
 			$("#totalVerbose").tooltip('fixTitle');
@@ -331,7 +339,7 @@ app.controller('KioskController', function($scope) {
 	$scope.sleep = function(milliseconds) {
 		var start = new Date().getTime();
 		for (var i = 0; i < 1e7; i++) {
-			if ((new Date().getTime() - start) > milliseconds){
+			if ((new Date().getTime() - start) > milliseconds) {
 				break;
 			}
 		}
