@@ -1,22 +1,13 @@
-<html>
-<head>
-	<meta charset="utf8" />
-	<title>README</title>
-</head>
-<body>
-	<h1>KOKOLANDIA KIOSK</h1>
-	<img src="kokolandia.png"/> <br/>
-	<h2>What is Kokolandia ?</h2>
-	<p>
-		Kokolandia is an amusement park for children with different <u>attractions</u> like:
-		<ul>
-			- Air castle
-			- Walking rope
-			- Trampoline
-			- Other...
-		</ul>
-		Kokolandia website: <a href="http://kokolandia.com/" target="_blank">http://kokolandia.com/</a>
-	</p>
+	# KOKOLANDIA KIOSK
+	![Screenshot 1](readme/screenshot_01.png)
+	## What is Kokolandia ?
+	
+	Kokolandia is an amusement park for children with different <u>attractions</u> like:
+		- Air castle
+		- Walking rope
+		- Trampoline
+		- Other...
+	Kokolandia website: <a href="http://kokolandia.com/" target="_blank">http://kokolandia.com/</a>
 	
 	## What is the kiosk?
 
